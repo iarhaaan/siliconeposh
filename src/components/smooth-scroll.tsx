@@ -1,5 +1,4 @@
 import { useEffect, type ReactNode } from "react";
-import Lenis from "lenis";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
@@ -9,23 +8,31 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
 
-    // Initialize Lenis with exact easing settings
-    const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
+    let lenisInstance: any = null;
+    let rafId = 0;
+
+    // Dynamically import Lenis to prevent SSR execution errors
+    import("lenis").then(({ default: Lenis }) => {
+      lenisInstance = new Lenis({
+        duration: 1.15,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+
+      const raf = (time: number) => {
+        lenisInstance.raf(time);
+        rafId = requestAnimationFrame(raf);
+      };
+      rafId = requestAnimationFrame(raf);
     });
 
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    };
-    rafId = requestAnimationFrame(raf);
-
     return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      if (lenisInstance) {
+        lenisInstance.destroy();
+      }
     };
   }, []);
 
