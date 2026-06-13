@@ -9,7 +9,7 @@
 
 > **A Comprehensive, Living Field Guide to the Dawn of the Silicon Intelligence Era.**
 
-**Silicon Epoch** (formerly *Beyond Limits*) is a highly polished, responsive, and data-driven chronicle tracking the geopolitical, economic, and technological forces shaping the next decade of artificial intelligence.
+**Silicon Epoch** is a highly polished, responsive, and data-driven chronicle tracking the geopolitical, economic, and technological forces shaping the next decade of artificial intelligence.
 
 All stats, analyses, and citations are calibrated and updated to represent primary-source developer releases, research papers, and indicators as of **mid-2026**.
 
@@ -19,7 +19,7 @@ All stats, analyses, and citations are calibrated and updated to represent prima
 
 ## 🔮 100% Vibecoded
 
-This repository is **100% Vibecoded** using agentic AI pairing (Antigravity). From rebranding the copy and styling, compiling direct subpath SVG components for a 96% module size optimization, configuring the Nitro server runner for Vercel deployment, to writing out new deep-dive chapters—the entire development workflow was driven through conversational vibes and agentic code execution.
+This repository is **100% Vibecoded** using agentic AI pairing (Antigravity). From rebranding the copy and styling, compiling direct subpath SVG components for a 96% module size optimization, configuring the Nitro server runner for Vercel deployment, to building out new deep-dive chapters and custom interactive features—the entire development workflow was driven through conversational vibes and agentic code execution.
 
 ---
 
@@ -37,17 +37,25 @@ This repository is **100% Vibecoded** using agentic AI pairing (Antigravity). Fr
 - **Chapter 10** · Geopolitics & The Chip Wars (TSMC, ASML lithography, exports, Huawei Ascend)
 - **Chapter 11** · The Weights Debate (Side-by-side comparison of Open vs. Closed weights)
 - **Chapter 12** · The Data Wall & Synthetic Futures (Depletion of human text, Reinforcement Learning, Test-time scaling)
+- **Interactive AI Timeline** · Jumping from Turing's foundations in 1950 to the frontier reasoning models of 2026.
 - **Bibliography & Sources** · A verified index of direct research papers, lab announcements, and live citations.
 
 ---
 
 ## 🚀 Key Features
 
-* **Silicon Epoch Rebranding**: A premium, immersive aesthetic built around curated dark mode styles, smooth typography (Inter/Outfit), and warm accents.
-* **Frontier Lab Integrations**: Official brand logo rendering using optimized SVG paths directly from `@lobehub/icons` subpaths. Bypasses bulky UI wrappers to keep the bundle highly performant.
-* **Side-by-Side Comparison**: Interactive, tabular analysis of frontier closed weights (GPT-5.5, Claude Fable 5) vs. open weights (DeepSeek V4-Pro, Qwen 3.7-Max) with calibrated stats.
-* **Sources & Citations**: Direct external live links opening in new tabs for all statistics and claims made on the platform.
-* **Vite SSR Ready**: Structured under **TanStack Start** for modern Server-Side Rendering (SSR) and seamless hydration, fully configured to bypass Node ESM directory resolution errors.
+* **Interactive AI History Timeline (`/timeline`)**:
+  * Visualizes the timeline of artificial intelligence from Alan Turing's 1950 proposal to the cutting-edge models of 2026.
+  * Real-time client-side text search over milestones, creators, and descriptions.
+  * Interactive chronological era filter sliders and category badges (Breakthroughs, Compute & Hardware, Game Milestones, Social & Policy).
+  * Immersive details drawer showing immediate legacy, key contributors, and active bibliographical references.
+  * Custom styled, sleek node dots utilising the brand's warm `ember` orange with glowing active shadow indicators.
+* **Silicon Epoch Aesthetics**: A premium, immersive interface built with curated dark/light themes, sleek glassmorphism, responsive masonry layouts, and smooth micro-animations.
+* **Frontier Lab Integrations**: Official brand logo rendering using optimized SVG paths directly from `@lobehub/icons` subpaths to keep the bundle size minimal.
+* **Side-by-Side Comparison**: Interactive, tabular analysis of frontier closed weights (GPT-5.5, Claude Fable 5) vs. open weights (DeepSeek V4-Pro, Qwen 3.7-Max) with calibrated statistics.
+* **Citations & Bibliography**: Live, verified external sources linked directly via superscript citation tags, supporting automatic scrolling and card highlights on the sources page.
+* **AI Crawler Friendly (`robots.txt`)**: Welcoming config allowing all AI crawling agents and search engines (GPTBot, ClaudeBot, Google-Extended, etc.) to traverse and index the entire site.
+* **Vite SSR Ready**: Structured under **TanStack Start** for modern Server-Side Rendering (SSR) and seamless hydration.
 
 ---
 
@@ -95,7 +103,7 @@ Compile the project for production:
 ```bash
 npm run build
 ```
-This builds the client and SSR server bundles cleanly under the `dist` directory.
+This builds the client and SSR server bundles cleanly under the `.output` directory.
 
 ---
 
