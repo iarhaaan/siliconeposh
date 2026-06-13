@@ -241,14 +241,15 @@ function Companies() {
         <div className="border border-border rounded-3xl overflow-hidden bg-background">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
+              <caption className="sr-only">Frontier Labs Comparison and Leaderboard Stats</caption>
               <thead>
                 <tr className="border-b border-border bg-cream/40 dark:bg-zinc-900/40 text-xs font-mono uppercase text-muted-foreground">
-                  <th className="p-4 lg:p-6">Lab</th>
-                  <th className="p-4 lg:p-6">Flagship Model</th>
-                  <th className="p-4 lg:p-6">Parameter Scale</th>
-                  <th className="p-4 lg:p-6">Context Window</th>
-                  <th className="p-4 lg:p-6">API Pricing (In/Out per 1M)</th>
-                  <th className="p-4 lg:p-6">Licensing Model</th>
+                  <th scope="col" className="p-4 lg:p-6">Lab</th>
+                  <th scope="col" className="p-4 lg:p-6">Flagship Model</th>
+                  <th scope="col" className="p-4 lg:p-6">Parameter Scale</th>
+                  <th scope="col" className="p-4 lg:p-6">Context Window</th>
+                  <th scope="col" className="p-4 lg:p-6">API Pricing (In/Out per 1M)</th>
+                  <th scope="col" className="p-4 lg:p-6">Licensing Model</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/60">

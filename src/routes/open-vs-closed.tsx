@@ -83,6 +83,7 @@ function OpenVsClosed() {
         <div className="eyebrow mb-6">Structural Comparison</div>
         <div className="overflow-hidden rounded-2xl border border-border bg-card">
           <table className="w-full text-left border-collapse">
+              <caption className="sr-only">Comparison between Open Weights and Closed API AI Models</caption>
             <thead className="bg-cream">
               <tr className="text-sm">
                 <th className="p-5 font-semibold border-b border-border w-1/4">Feature</th>

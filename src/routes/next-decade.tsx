@@ -5,9 +5,15 @@ import { Citation } from "@/components/citation";
 export const Route = createFileRoute("/next-decade")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/next-decade" },
       { title: "Horizon Technologies & Next Decade — Silicon Epoch" },
       { name: "description", content: "Quantum computing (IBM Starling, Google Willow), neuromorphic Rain chips, DNA storage, and the 2026–2035 year-by-year timeline." },
       { property: "og:title", content: "Horizon Technologies & Next Decade — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/next-decade" },
     ],
   }),
   component: NextDecade,

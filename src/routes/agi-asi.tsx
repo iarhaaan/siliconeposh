@@ -5,9 +5,15 @@ import { Citation } from "@/components/citation";
 export const Route = createFileRoute("/agi-asi")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/agi-asi" },
       { title: "AGI & ASI Timelines — Silicon Epoch" },
       { name: "description", content: "Consensus AGI predictions from Altman, Amodei, Legg, Hassabis, Schmidt, Huang, Kurzweil. Chinchilla scaling limits and test-time compute." },
       { property: "og:title", content: "AGI & ASI Timelines — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/agi-asi" },
     ],
   }),
   component: AgiAsi,

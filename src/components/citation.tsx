@@ -1,22 +1,32 @@
 import { Link } from "@tanstack/react-router";
-import { SOURCES_DATA } from "@/lib/sources-data";
+import { SOURCES_MAP } from "@/lib/sources-data";
 
 export function Citation({ id }: { id: string }) {
-  const index = SOURCES_DATA.findIndex((s) => s.id === id);
-  if (index === -1) {
+  const sourceInfo = SOURCES_MAP.get(id);
+  
+  if (!sourceInfo) {
     console.warn(`Citation source with id "${id}" not found.`);
-    return null;
+    return (
+      <sup className="select-none inline-block scroll-smooth">
+        <span 
+          className="text-red-500 font-mono text-[9px] font-bold px-0.5 cursor-help" 
+          title={`Missing source reference: "${id}"`}
+        >
+          [?]
+        </span>
+      </sup>
+    );
   }
-  const source = SOURCES_DATA[index];
+  
   return (
     <sup className="select-none inline-block scroll-smooth">
       <Link
         to="/sources"
         hash={id}
         className="text-ember font-mono text-[9px] font-semibold hover:underline px-0.5"
-        title={`${source.title} (${source.author}, ${source.date})`}
+        title={`${sourceInfo.title} (${sourceInfo.author}, ${sourceInfo.date}) [${sourceInfo.type === 'primary' ? 'Verified Primary' : 'Industry Analysis'}]`}
       >
-        [{index + 1}]
+        [{sourceInfo.index + 1}]
       </Link>
     </sup>
   );

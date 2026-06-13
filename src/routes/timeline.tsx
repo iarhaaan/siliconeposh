@@ -7,9 +7,15 @@ import { Search, Calendar, Award, Cpu, Globe, Gamepad } from "lucide-react";
 export const Route = createFileRoute("/timeline")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/timeline" },
       { title: "Interactive AI History Timeline — Silicon Epoch" },
       { name: "description", content: "Explore the evolution of artificial intelligence from its founding mathematical concepts in 1950 to the agentic reasoning models of 2026." },
       { property: "og:title", content: "Interactive AI History Timeline — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/timeline" },
     ],
   }),
   component: TimelinePage,

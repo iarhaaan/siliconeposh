@@ -1,3 +1,5 @@
 # Welcome AI agents and web crawlers! Feel free to explore and index all pages of this history site.
 User-agent: *
 Allow: /
+
+Sitemap: https://siliconeposh.vercel.app/sitemap.xml

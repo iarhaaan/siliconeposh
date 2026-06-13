@@ -5,9 +5,15 @@ import { Citation } from "@/components/citation";
 export const Route = createFileRoute("/use-cases")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/use-cases" },
       { title: "AI Use Cases — Silicon Epoch" },
       { name: "description", content: "SWE-bench Pro scores, AlphaFold 3 biomolecular docking, GNoME materials discovery, and AlphaGeometry 2 IMO gold medal benchmarks." },
       { property: "og:title", content: "AI Use Cases — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/use-cases" },
     ],
   }),
   component: UseCases,

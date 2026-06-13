@@ -119,13 +119,14 @@ function Infrastructure() {
         <div className="border border-border rounded-3xl overflow-hidden bg-background">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
+              <caption className="sr-only">Nuclear Power Purchase Agreements (PPAs) for AI Data Centers</caption>
               <thead>
                 <tr className="border-b border-border bg-cream/40 dark:bg-zinc-900/40 text-xs font-mono uppercase text-muted-foreground">
-                  <th className="p-4 lg:p-6">Project Name</th>
-                  <th className="p-4 lg:p-6">Partners</th>
-                  <th className="p-4 lg:p-6">Capacity</th>
-                  <th className="p-4 lg:p-6">Timeline Target</th>
-                  <th className="p-4 lg:p-6">Details</th>
+                  <th scope="col" className="p-4 lg:p-6">Project Name</th>
+                  <th scope="col" className="p-4 lg:p-6">Partners</th>
+                  <th scope="col" className="p-4 lg:p-6">Capacity</th>
+                  <th scope="col" className="p-4 lg:p-6">Timeline Target</th>
+                  <th scope="col" className="p-4 lg:p-6">Details</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/60">

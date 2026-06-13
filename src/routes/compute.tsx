@@ -188,15 +188,16 @@ function ComputeCore() {
         <div className="border border-border rounded-3xl overflow-hidden bg-background">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
+              <caption className="sr-only">AI Hardware Accelerators Comparison Specs</caption>
               <thead>
                 <tr className="border-b border-border bg-cream/40 dark:bg-zinc-900/40 text-xs font-mono uppercase text-muted-foreground">
-                  <th className="p-4 lg:p-6">Accelerator</th>
-                  <th className="p-4 lg:p-6">Process Node</th>
-                  <th className="p-4 lg:p-6">Transistors</th>
-                  <th className="p-4 lg:p-6">On-Chip / HBM Memory</th>
-                  <th className="p-4 lg:p-6">Bandwidth</th>
-                  <th className="p-4 lg:p-6">Peak Performance</th>
-                  <th className="p-4 lg:p-6">Status</th>
+                  <th scope="col" className="p-4 lg:p-6">Accelerator</th>
+                  <th scope="col" className="p-4 lg:p-6">Process Node</th>
+                  <th scope="col" className="p-4 lg:p-6">Transistors</th>
+                  <th scope="col" className="p-4 lg:p-6">On-Chip / HBM Memory</th>
+                  <th scope="col" className="p-4 lg:p-6">Bandwidth</th>
+                  <th scope="col" className="p-4 lg:p-6">Peak Performance</th>
+                  <th scope="col" className="p-4 lg:p-6">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/60">

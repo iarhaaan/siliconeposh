@@ -21,10 +21,16 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/" },
       { title: "Silicon Epoch — How AI Will Reshape Humanity" },
       { name: "description", content: "A comprehensive, current field guide to the AI revolution: every frontier lab, every model, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence." },
       { property: "og:title", content: "Silicon Epoch — How AI Will Reshape Humanity" },
       { property: "og:description", content: "Every frontier lab, the chip wars, power grids, reasoning models, the data wall, and the road to superintelligence." },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/" },
     ],
   }),
   component: Index,
@@ -46,7 +52,7 @@ const PILLARS = [
     cta: "Inspect the silicon",
   },
   {
-    eyebrow: "02 · The Mechanics",
+    eyebrow: "02 · How It Works",
     title: "How AI actually works",
     body: "Transformers, self-attention, GQA, Dense vs Mixture of Experts (MoE), and linear-complexity alternatives like Mamba 3 and Linear Recurrent Units.",
     to: "/how-ai-works" as const,
@@ -81,7 +87,7 @@ const PILLARS = [
     cta: "Read the timelines",
   },
   {
-    eyebrow: "07 · Play",
+    eyebrow: "07 · Games",
     title: "AI in games & virtual worlds",
     body: "David Silver's reinforcement learning milestones from AlphaGo to AlphaStar. Explore Genie 3 real-world engines and Factorio long-horizon agents.",
     to: "/games" as const,
@@ -95,7 +101,7 @@ const PILLARS = [
     cta: "See the roadmap",
   },
   {
-    eyebrow: "09 · The Grid",
+    eyebrow: "09 · Infrastructure",
     title: "Infrastructure & nuclear deals",
     body: "Powering intelligence at gigawatt scale: Meta's 5 GW Hyperion, xAI Memphis, and nuclear PPAs (Three Mile Island, Kairos SMR, Amazon Talen).",
     to: "/infrastructure" as const,
@@ -109,21 +115,21 @@ const PILLARS = [
     cta: "Explore the supply chain",
   },
   {
-    eyebrow: "11 · The Weights",
+    eyebrow: "11 · Open vs Closed",
     title: "Open weights vs closed APIs",
     body: "The commercial and philosophical weights war. Meta's Llama 4 Scout, Mistral Small 4, Gemma 4, and the regulatory impacts of California's legislation.",
     to: "/open-vs-closed" as const,
     cta: "Compare the weights",
   },
   {
-    eyebrow: "12 · The Data Wall",
+    eyebrow: "12 · Data Wall",
     title: "Data depletion & synthetic futures",
     body: "Internet data exhaustion timelines. How test-time compute, RLAIF self-play, and sandbox simulations bypass the physical data wall.",
     to: "/data-wall" as const,
     cta: "Study the new scaling laws",
   },
   {
-    eyebrow: "Appendix · Daily Practice",
+    eyebrow: "Appendix · Learn AI",
     title: "Daily AI Fluency: learn to practice",
     body: "Six practical habits to build AI literacy: prompting, agent execution, daily utilization, and keeping up with practitioners over pundits.",
     to: "/learn" as const,

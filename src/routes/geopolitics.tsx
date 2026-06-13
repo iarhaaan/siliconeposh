@@ -5,9 +5,15 @@ import { Citation } from "@/components/citation";
 export const Route = createFileRoute("/geopolitics")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/geopolitics" },
       { title: "Geopolitics & Chip Wars — Silicon Epoch" },
       { name: "description", content: "TSMC Taiwan chokepoint, ASML High-NA EUV lithography, US export controls, and China's domestic Huawei Ascend ecosystem." },
       { property: "og:title", content: "Geopolitics & Chip Wars — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/geopolitics" },
     ],
   }),
   component: Geopolitics,

@@ -5,9 +5,15 @@ import { Citation } from "@/components/citation";
 export const Route = createFileRoute("/how-ai-works")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/how-ai-works" },
       { title: "How AI Works — Silicon Epoch" },
       { name: "description", content: "Transformers, GQA attention, Mixture of Experts (MoE), Mamba SSMs, Flow Matching, and the post-training alignment pipeline." },
       { property: "og:title", content: "How AI Works — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/how-ai-works" },
     ],
   }),
   component: HowAIWorks,

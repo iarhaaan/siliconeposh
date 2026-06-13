@@ -172,3 +172,13 @@ html.lenis, html.lenis body {
   overscroll-behavior: contain;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    animation: none !important;
+    transform: none !important;
+  }
+  .rise {
+    animation: none !important;
+    transform: none !important;
+  }
+}

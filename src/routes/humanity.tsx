@@ -5,9 +5,15 @@ import { Citation } from "@/components/citation";
 export const Route = createFileRoute("/humanity")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/humanity" },
       { title: "Safety, Alignment & Labor — Silicon Epoch" },
       { name: "description", content: "Post-training pipelines (DPO, PPO, GRPO), Constitutional AI, alignment failures (sleeper agents), and economic labor transitions." },
       { property: "og:title", content: "Safety, Alignment & Labor — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/humanity" },
     ],
   }),
   component: Humanity,

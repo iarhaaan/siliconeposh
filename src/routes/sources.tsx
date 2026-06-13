@@ -6,9 +6,15 @@ import { SOURCES_DATA } from "@/lib/sources-data";
 export const Route = createFileRoute("/sources")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/sources" },
       { title: "Sources & Bibliography — Silicon Epoch" },
       { name: "description", content: "Transparency bibliography of the primary source publications, research papers, interviews, and statistical reports used on Silicon Epoch." },
       { property: "og:title", content: "Sources & Bibliography — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/sources" },
     ],
   }),
   component: Sources,
@@ -118,15 +124,24 @@ function Sources() {
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="font-mono text-[10px] tracking-widest uppercase text-ember border border-ember/20 rounded px-2 py-0.5">
-                      {source.category === "hardware" ? "Silicon & Compute" 
-                        : source.category === "labs" ? "Frontier Labs" 
-                        : source.category === "reasoning" ? "Logic & Science" 
-                        : source.category === "energy" ? "Grid & Nuclear" 
-                        : source.category === "geopolitics" ? "Geopolitics" 
-                        : "Data & Scaling"}
-                    </span>
+                  <div className="flex items-center justify-between gap-4 flex-wrap">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-mono text-[10px] tracking-widest uppercase text-ember border border-ember/20 rounded px-2 py-0.5">
+                        {source.category === "hardware" ? "Silicon & Compute" 
+                          : source.category === "labs" ? "Frontier Labs" 
+                          : source.category === "reasoning" ? "Logic & Science" 
+                          : source.category === "energy" ? "Grid & Nuclear" 
+                          : source.category === "geopolitics" ? "Geopolitics" 
+                          : "Data & Scaling"}
+                      </span>
+                      <span className={`font-mono text-[9px] tracking-wider uppercase rounded px-2 py-0.5 ${
+                        source.type === "primary"
+                          ? "bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20"
+                          : "bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20"
+                      }`}>
+                        {source.type === "primary" ? "Verified Primary" : "Industry Analysis"}
+                      </span>
+                    </div>
                     <span className="font-mono text-xs text-foreground/50">{source.date}</span>
                   </div>
                   <h3 className="font-display text-2xl mt-4 leading-tight">{source.title}</h3>

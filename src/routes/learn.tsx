@@ -4,9 +4,15 @@ import { PageShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/learn")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/learn" },
       { title: "Learn AI — Silicon Epoch" },
       { name: "description", content: "How to actually become AI-fluent in 2026 — the mindset, the daily practice, the tools and the resources." },
       { property: "og:title", content: "Learn AI — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/learn" },
     ],
   }),
   component: Learn,
@@ -23,7 +29,7 @@ const PRACTICE = [
   "Use a frontier chatbot (ChatGPT, Claude, Gemini, Grok, Kimi, DeepSeek) every single day for at least one real task.",
   "Learn to prompt: be specific, give context, show examples, ask for a draft, iterate.",
   "Pick one creative tool (image, video, music or 3D) and ship something every week.",
-  "Try a coding agent (Cursor, Claude Code, Lovable, Replit, v0). Build something useful, even badly.",
+  "Try a coding agent (Cursor, Claude Code, Replit, v0). Build something useful, even badly.",
   "Read one primary source per week — a lab blog post (OpenAI, Anthropic, DeepMind, DeepSeek) or a paper abstract.",
   "Follow practitioners over pundits: Karpathy, Simon Willison, Ethan Mollick, Latent Space, the original lab researchers.",
 ];

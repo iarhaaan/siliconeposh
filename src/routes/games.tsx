@@ -101,12 +101,13 @@ function Games() {
         <div className="border border-border rounded-3xl overflow-hidden bg-background">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
+              <caption className="sr-only">David Silver's Reinforcement Learning Lineage Milestones</caption>
               <thead>
                 <tr className="border-b border-border bg-cream/40 dark:bg-zinc-900/40 text-xs font-mono uppercase text-muted-foreground">
-                  <th className="p-4 lg:p-6">System</th>
-                  <th className="p-4 lg:p-6">Year</th>
-                  <th className="p-4 lg:p-6">Milestone Achievement</th>
-                  <th className="p-4 lg:p-6">Significance</th>
+                  <th scope="col" className="p-4 lg:p-6">System</th>
+                  <th scope="col" className="p-4 lg:p-6">Year</th>
+                  <th scope="col" className="p-4 lg:p-6">Milestone Achievement</th>
+                  <th scope="col" className="p-4 lg:p-6">Significance</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/60">

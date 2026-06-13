@@ -4,19 +4,19 @@ import { Sun, Moon, ChevronDown } from "lucide-react";
 
 const NAV = [
   { to: "/", label: "Overview" },
-  { to: "/compute", label: "Compute Core" },
-  { to: "/how-ai-works", label: "How It Works" },
-  { to: "/companies", label: "Frontier Labs" },
-  { to: "/use-cases", label: "Use Cases" },
-  { to: "/humanity", label: "Humanity" },
-  { to: "/agi-asi", label: "AGI & ASI" },
-  { to: "/games", label: "Games" },
-  { to: "/infrastructure", label: "Infrastructure" },
-  { to: "/geopolitics", label: "Geopolitics" },
-  { to: "/open-vs-closed", label: "Open vs Closed" },
-  { to: "/data-wall", label: "Data Wall" },
-  { to: "/next-decade", label: "Next Decade" },
-  { to: "/learn", label: "Learn AI" },
+  { to: "/compute", label: "01 · Compute Core" },
+  { to: "/how-ai-works", label: "02 · How It Works" },
+  { to: "/companies", label: "03 · Frontier Labs" },
+  { to: "/use-cases", label: "04 · Use Cases" },
+  { to: "/humanity", label: "05 · Humanity" },
+  { to: "/agi-asi", label: "06 · AGI & ASI" },
+  { to: "/games", label: "07 · Games" },
+  { to: "/next-decade", label: "08 · Next Decade" },
+  { to: "/infrastructure", label: "09 · Infrastructure" },
+  { to: "/geopolitics", label: "10 · Geopolitics" },
+  { to: "/open-vs-closed", label: "11 · Open vs Closed" },
+  { to: "/data-wall", label: "12 · Data Wall" },
+  { to: "/learn", label: "Appendix · Learn AI" },
   { to: "/timeline", label: "Timeline" },
   { to: "/sources", label: "Sources" },
 ] as const;
@@ -56,16 +56,21 @@ const CHAPTER_GROUPS = [
 
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme");
-      if (stored === "dark" || stored === "light") return stored;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    return "light";
-  });
+  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   useEffect(() => {
+    // Only run on client mount to prevent SSR hydration warnings
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark" || stored === "light") {
+      setTheme(stored);
+    } else {
+      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(isDark ? "dark" : "light");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (theme === null) return;
     const root = window.document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
@@ -75,13 +80,21 @@ export function ThemeToggle() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  const isMounted = theme !== null;
+
   return (
     <button
       onClick={() => setTheme((t) => (t === "light" ? "dark" : "light"))}
       className="p-2.5 rounded-full hover:bg-cream transition-colors border border-border text-foreground/85 hover:text-foreground shrink-0 flex items-center justify-center cursor-pointer"
       aria-label="Toggle theme"
     >
-      {theme === "light" ? <Moon size={15} /> : <Sun size={15} />}
+      {!isMounted ? (
+        <span className="w-[15px] h-[15px]" />
+      ) : theme === "light" ? (
+        <Moon size={15} />
+      ) : (
+        <Sun size={15} />
+      )}
     </button>
   );
 }
@@ -132,7 +145,14 @@ export function SiteNav() {
             onMouseLeave={handleMouseLeave}
           >
             <button
+              id="chapters-menu-button"
+              aria-haspopup="menu"
+              aria-expanded={dropdownOpen}
+              aria-controls="chapters-menu"
               onClick={() => setDropdownOpen((v) => !v)}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") setDropdownOpen(false);
+              }}
               className="text-[13px] font-medium tracking-wide text-foreground/75 hover:text-foreground transition-colors flex items-center gap-1 cursor-pointer"
             >
               Chapters
@@ -141,6 +161,9 @@ export function SiteNav() {
 
             {dropdownOpen && (
               <div 
+                id="chapters-menu"
+                role="menu"
+                aria-labelledby="chapters-menu-button"
                 className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[580px] bg-background/95 backdrop-blur-lg border border-border rounded-xl shadow-2xl p-6 grid grid-cols-3 gap-6 animate-in fade-in slide-in-from-top-2 duration-200 z-50"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -155,6 +178,7 @@ export function SiteNav() {
                         <Link
                           key={item.to}
                           to={item.to}
+                          role="menuitem"
                           onClick={() => setDropdownOpen(false)}
                           className="text-[12px] py-1 px-1.5 rounded hover:bg-cream/50 text-foreground/80 hover:text-foreground transition-all block hover:translate-x-0.5"
                         >
@@ -245,7 +269,8 @@ export function SiteFooter() {
           <div className="eyebrow mb-3">Frontier Chronicle</div>
           <p className="text-sm text-foreground/85">June 2026 Edition</p>
           <p className="mt-3 text-xs text-muted-foreground leading-relaxed">
-            All data represents primary-source lab releases, researcher papers, and calibrated indicators as of mid-2026. 
+            All data represents primary-source lab releases, research papers, and calibrated indicators as of mid-2026. 
+            We distinguish between verified primary sources and secondary industry projections for transparency.
             All trademark logos belong to their respective creators.
           </p>
           <div className="mt-6">
@@ -262,8 +287,16 @@ export function SiteFooter() {
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-background focus:border focus:border-border focus:rounded-md focus:shadow-lg focus:outline-none"
+      >
+        Skip to main content
+      </a>
       <SiteNav />
-      <main className="flex-1">{children}</main>
+      <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
+        {children}
+      </main>
       <SiteFooter />
     </div>
   );

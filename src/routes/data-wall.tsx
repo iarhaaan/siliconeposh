@@ -5,9 +5,15 @@ import { Citation } from "@/components/citation";
 export const Route = createFileRoute("/data-wall")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { name: "twitter:image", content: "https://siliconeposh.vercel.app/og-image.png" },
+      { property: "og:url", content: "https://siliconeposh.vercel.app/data-wall" },
       { title: "The Data Wall & Synthetic Futures — Silicon Epoch" },
       { name: "description", content: "Scraping limits, internet data depletion timelines, MIT provenance content withholding, test-time compute, and reinforcement learning self-play." },
       { property: "og:title", content: "The Data Wall & Synthetic Futures — Silicon Epoch" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://siliconeposh.vercel.app/data-wall" },
     ],
   }),
   component: DataWall,
